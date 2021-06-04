@@ -5,7 +5,6 @@ import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import {Box, CardMedia} from "@material-ui/core";
 
 interface Prop {
     employee: Employee

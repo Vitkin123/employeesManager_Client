@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {useDispatch, useSelector} from "react-redux";
+import {signIn} from "../redux/actions";
+import axios from "axios";
 
 const Copyright = () => {
     return (
@@ -48,18 +51,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-interface Prop {
-    signIn: (email: string, password: string) => void;
-}
+export const SignInComponent = () => {
 
-export const SignInComponent = ({signIn}: Prop) => {
+    const dispatch = useDispatch();
+
     const classes = useStyles();
     const [email, setEmail] = useState<string>("");
-    const [password, swtPassword] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        signIn(email, password);
+        dispatch(signIn(email, password));
     }
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -67,7 +69,7 @@ export const SignInComponent = ({signIn}: Prop) => {
         if (event.target.name === "email") {
             setEmail(event.target.value);
         } else if (event.target.name === "password") {
-            swtPassword(event.target.value);
+            setPassword(event.target.value);
         }
     }
 
