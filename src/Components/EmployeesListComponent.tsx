@@ -10,7 +10,7 @@ export const EmployeesList = () => {
 
     const store = useSelector((state: RootState) => state.employeeStore);
     let employees = store.employees;
-    console.log(employees)
+    console.log("pizdos");
 
     return (
         <Grid container spacing={6} style={{marginTop: "50px"}}>

@@ -4,7 +4,8 @@ interface SignInAction {
         role: string,
         token: string,
         tokenType: string,
-        signedIn: boolean
+        signedIn: boolean,
+        isRememberMe: boolean
     }
 }
 
@@ -12,7 +13,8 @@ const INITIAL_STATE = {
     role: "",
     token: "",
     tokenType: "",
-    signedIn: false
+    signedIn: false,
+    isRememberMe: false
 }
 
 export const signInReducer = (state = INITIAL_STATE, action: SignInAction) => {
@@ -24,6 +26,15 @@ export const signInReducer = (state = INITIAL_STATE, action: SignInAction) => {
                 token: action.payload.token,
                 tokenType: action.payload.tokenType,
                 signedIn: action.payload.signedIn
+            }
+        case "RememberMe":
+            return {
+                ...state,
+                isRememberMe: action.payload.isRememberMe
+            }
+        case "SignUp":
+            return {
+                ...state
             }
         default:
             return state;

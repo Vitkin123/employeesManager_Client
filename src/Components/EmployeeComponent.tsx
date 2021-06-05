@@ -9,7 +9,7 @@ interface Prop {
 }
 
 export const EmployeeComponent = ({employee}: Prop) => {
-    const {id, name, lastName} = employee;
+    const {name, lastName} = employee;
 
     return (
         <Card>
